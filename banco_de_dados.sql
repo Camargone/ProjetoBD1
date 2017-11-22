@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 20-Nov-2017 às 22:18
--- Versão do servidor: 10.1.19-MariaDB
--- PHP Version: 5.6.28
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `banco_de_dados`
 --
@@ -59,7 +41,7 @@ INSERT INTO `nivel_acessos` (`idNivel`, `nome_nivel`) VALUES
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `login` varchar(50) NOT NULL,
@@ -73,7 +55,7 @@ CREATE TABLE `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `login`, `senha`, `nivel_acesso_id`, `create`, `modified`) VALUES
+INSERT INTO `usuarios` (`idUsuario`, `nome`, `email`, `login`, `senha`, `nivel_acesso_id`, `create`, `modified`) VALUES
 (1, 'Ivan', 'camargo65@gmail.com', 'camargone', '123', 1, '2017-11-20 00:00:00', NULL);
 
 --
@@ -96,7 +78,7 @@ ALTER TABLE `nivel_acessos`
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idUsuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -116,7 +98,7 @@ ALTER TABLE `nivel_acessos`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

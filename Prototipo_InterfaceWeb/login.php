@@ -1,5 +1,6 @@
 <?php
-	$ipPlayer = $_SERVER["REMOTE_ADDR"];
+	session_start();
+  $ipPlayer = $_SERVER["REMOTE_ADDR"];
 	include("conexao.php");
 ?>
 
@@ -21,6 +22,7 @@
   </head>
 
   <body>
+
     <div align="center" class="container">		
       <img = src="img/SGP.png" alt="imagem logo"/>
 
@@ -28,16 +30,26 @@
         <h2 class="form-signin-heading text-center"> Cadastro e login de usuários </h2>
         <label for="inputEmail" class="sr-only">Usuário</label>
 		
-        <input type="text" name="usuario" class="form-control" placeholder="Digitar o Usuário" required autofocus><br />
+        <input type="text" name="usuario" class="form-control" placeholder="Entre com o usuário" required autofocus><br />
 		
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" name="senha" class="form-control" placeholder="Digite a Senha" required >
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+        <input type="password" name="senha" class="form-control" placeholder="Entre com a senha" required >
+          <div class="btn-group btn-group-justified">
+             <button class="btn btn-primary " type="submit" name="btnLogin">Acessar</button>
+             <button class="btn btn-primary " type="button" name="btnSignin" onclick="location.href='cadastro.php';">Cadastrar</button>
+
+          </div>
       </form>
 
 		<span class="span_IP"> Por segurança seu endereço de IP ( <b> <?php echo $ipPlayer; ?> </b>) foi registrado! </span>
-		
+    <p class="text-center text-danger">
+      <?php
+        if(isset($_SESSION['loginErro'])){
+          echo $_SESSION['loginErro'];
+          unset($_SESSION['loginErro']);
+        }
+      ?>
+    </p>
     </div> <!-- /container -->
 
 
